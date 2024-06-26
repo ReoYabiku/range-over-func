@@ -24,7 +24,7 @@ func TestMain(m *testing.M) {
 	m.Run()
 }
 
-func BenchmarkNormalTopSort(b *testing.B) {
+func BenchmarkNormal(b *testing.B) {
 	for range b.N {
 		for v := range NormalTopologicalSort(graph) {
 			fmt.Fprintf(io.Discard, "%d\n", v)
@@ -32,7 +32,7 @@ func BenchmarkNormalTopSort(b *testing.B) {
 	}
 }
 
-func BenchmarkTopSort(b *testing.B) {
+func BenchmarkIter(b *testing.B) {
 	for range b.N {
 		for v := range IterTopologicalSort(graph) {
 			fmt.Fprintf(io.Discard, "%d\n", v)
